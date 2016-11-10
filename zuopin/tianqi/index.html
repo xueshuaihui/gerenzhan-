@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="loadScript.js"></script>
+	<script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+	<script type="text/javascript">
+    $(function(){
+        var day=$(".day")[0];
+        var dayimg=$("img",day)[0];
+        var dayul=$("ul",day)[0];
+        var night=$(".night")[0];
+        var nightimg=$("img",night)[0];
+        var nightul=$("ul",night)[0];
+        var Time=$(".time")[0];
+        var Retime=$(".retime")[0];
+    	loadScript({
+		url:'http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&city='+remote_ip_info.city+'&day=0&dfc=3',
+		charset:'gbk',
+		cache:"true",
+		success:function(){
+			console.log(SWther)
+			var done=SWther.w[remote_ip_info.city][0].d1;
+			/*d1 风向*/
+			var dtwo=SWther.w[remote_ip_info.city][0].d2;
+			/*d2   持续风向*/
+			var tone=SWther.w[remote_ip_info.city][0].t1;
+			var ttwo=SWther.w[remote_ip_info.city][0].t2;
+			/*t1 到t2 温度*/
+			var sone=SWther.w[remote_ip_info.city][0].s1;
+			var stwo=SWther.w[remote_ip_info.city][0].s2;
+			/*天气 s1 s2*/
+			var fone=SWther.w[remote_ip_info.city][0].f1;
+			var ftwo=SWther.w[remote_ip_info.city][0].f2;
+			/*图片的链接     http://i2.sinaimg.cn/dy/main/weather/weatherplugin/wthIco/20_20/qing_0.png*/
+			/*f1  f2   天气图片*/
+			var pone=SWther.w[remote_ip_info.city][0].p1;
+			var ptwo=SWther.w[remote_ip_info.city][0].p2;
+			/*p1  p2  风向几级*/
+			var time=SWther.add.now;
+			/*当前时间*/
+			var rtime=SWther.add.update;
+			/*天气更新时间*/
+
+
+			// Time.innerHTML=time;
+			Retime.innerHTML=rtime;
+			/*页面 天气图标*/
+			dayimg.src="http://php.weather.sina.com.cn/images/yb3/180_180/"+fone+"_0.png";
+			nightimg.src="http://php.weather.sina.com.cn/images/yb3/180_180/"+ftwo+"_1.png";
+			/*天气信息*/
+			var str='';
+			str+='<li style="font-size:30px">'+tone+'℃</li><li>'+sone+'</li><li>'+done+pone+'级</li>';
+			dayul.innerHTML=str;
+			/*白天*/
+			var strs='';
+			strs+='<li style="font-size:30px">'+ttwo+'℃</li><li>'+stwo+'</li><li>'+dtwo+ptwo+'级</li>';
+			nightul.innerHTML=strs;
+			/*夜晚*/
+		}
+	})
+
+
+   })
+	</script>
+<style type="text/css">
+    body,ul,li,h5{padding:0;margin:0;list-style:none;font-weight:normal;}
+	.box{width:486px;height:258px;padding:10px;margin:100px auto;background:url(./image/weather_yc_01.jpg);}
+	.day,.night{width:238px;height:258px;float:left;}
+	h5{font-size:20px;color:white;font-family:"Microsoft YaHei"}
+	img{display:block;margin:0 auto;}
+	ul{width:150px;height:110px;margin:-55px auto;}
+	ul>li{text-align:center;line-height:35px;color:white;font-size:18px;}
+</style>
+</head>
+<body>
+	<!--  <span class="time"></span> -->
+ 	<span class="retime"></span>
+ <div class="box">
+ 	<div class="day">
+ 		<h5>今天白天</h5>
+ 		<img src="">
+ 		<ul>
+ 		</ul>
+ 	</div>
+ 	<div class="night">
+ 		<h5>今天夜间</h5>
+ 		<img src="">
+ 		<ul>
+ 		</ul>
+ 	</div>
+ </div>
+</body>
+</html>

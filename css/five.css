@@ -1,0 +1,71 @@
+.fivezp{background:url("../image/bg3.jpg") no-repeat center;background-size:cover;overflow: hidden;}
+/*折线*/
+.fivezp .start{width:10px;height:15px;position:absolute;top:15%;left:20%;z-index:5;background:#ff9e02;}
+.fivezp .end{width:10px;height:15px;background:#ff9e02;position:absolute;top:50%;left:895px}
+.fivezp .zhexian{width:0;height:4px;background:#ff9e02;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto auto;}
+.fivezp .zhexian:nth-child(1){left:0}
+.fivezp .zhexian:nth-child(2){left:100px}
+.fivezp .zhexian:nth-child(3){left:135px;top:190px}
+.fivezp .zhexian:nth-child(4){left:165px;top:-165px}
+.fivezp .zhexian:nth-child(5){left:200px;top:15px}
+.fivezp .zhexian:nth-child(6){left:700px;top:15px}
+.fivezp .zhexian:nth-child(7){left:735px;top:200px}
+.fivezp .zhexian:nth-child(8){left:765px;top:-160px}
+.fivezp .zhexian:nth-child(9){left:795px;top:20px}
+.fivezp .start span{width:200px;display:block;font-size: 20px;color:white;position:absolute;}
+.fivezp .start .work{opacity: 0;left:300px;font-size:50px;top:-90px}
+.fivezp .start .zpzs{opacity: 0;left:550px;bottom:-40px}
+.fivezp .gehang{display:none}
+/*进度*/
+.fivezp .jindu{width:100%;height:100%;position:absolute;left:0;bottom:0;}
+/*.fivezp .jindu .myCanvas{display:block;!*margin:0 auto*!}*/
+@media screen and (min-width:750px) {
+    .fivezp .jindu{width:90%;height:90%;position:absolute;left:5%;bottom:0;}
+}
+@media screen and (min-width:900px) {
+    .fivezp .jindu{width:80%;height:70%;position:absolute;left:10%;bottom:0;}
+}
+@media screen and (min-width:1100px) {
+    .fivezp .jindu{width:70%;height:60%;position:absolute;left:15%;bottom:0;}
+}
+
+
+.fivezp a,.fivezp img{border:0;text-decoration:none;}
+.fivezp a{opacity: 0;}
+/*body{font:12px/180% Arial;}*/
+.fivezp .brand a{
+    display: block;
+    float: left;
+    margin: 15px;
+    width: 100px;
+    height: 140px;
+    text-align: center;
+    position: relative;
+}
+.fivezp .brand img{
+    width: 100px;
+    height: 140px;
+}
+.fivezp .brand .info{
+    display: none;
+    background-color: #f0f0f0;
+    color: #369242;
+}
+.fivezp .vertical .info{
+    width: 0;
+    height: 140px;
+    margin: 0 auto;
+}
+.fivezp .horizontal img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.fivezp .horizontal .info{
+    width: 100px;
+    height: 0;
+    top: 120px;
+    position: absolute;
+    left: 0;
+}
+.fivezp .info{font-size: 20px;line-height: 60px;}

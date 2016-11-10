@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D轮播</title>
+	<script type="text/javascript" src='jquery-1.11.3.js'></script>
+	<style>
+	*{margin:0;padding:0;}
+	.box,.imgbox{position:relative;width:510px;height:125px;}
+	.box{margin:0 auto;width:500px;height:300px;}
+	.imgbox>a>img{position:absolute;}
+	.btnleft{position:absolute;left:-30px;top:40%;}
+	.btnright{position:absolute;right:0;top:40%;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="imgbox">
+			<a href="javascript:;"><img src="./image/01.png"></a>
+			<a href="javascript:;"><img src="./image/02.png"></a>
+			<a href="javascript:;"><img src="./image/03.png"></a>
+			<a href="javascript:;"><img src="./image/04.png"></a>
+			<a href="javascript:;"><img src="./image/05.png"></a>
+			<a href="javascript:;"><img src="./image/01.png"></a>
+			<a href="javascript:;"><img src="./image/02.png"></a>
+		</div>
+		<div class="btnbox">
+			<a href="javascript:;" class="btnleft"><img src="./image/btn1.jpg"  width=50></a>
+			<a href="javascript:;" class='btnright'><img src="./image/btn2.jpg"  width=50></a>
+		</div>
+	</div>
+	<script>
+	var $imgs=$(".imgbox>a>img");
+	var W=$imgs.first().width();
+	var H=$imgs.first().height();
+	var boxW=$(".box").width();
+	var boxH=$(".box").height();
+	var arr=$.makeArray($imgs);
+	var syarr=[];
+	$imgs.each(function(i,obj){
+		if(i==2){
+			var lw=W;
+			var lh=H;
+			var lleft=(boxW-W)/2;
+			var ltop=(boxH-H)/2;
+			var lindex=5;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+
+		if(i==1){
+			var lw=W*0.8;
+			var lh=H*0.8;
+			var lleft=boxW/2-W/2-lw/2;
+			var ltop=boxH/2-H/2+(H-lh)/2;
+			var lindex=3;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+		if(i==3){
+			var lw=W*0.8;
+			var lh=H*0.8;
+			var lleft=boxW/2;
+			var ltop=boxH/2-H/2+(H-lh)/2;
+			var lindex=3;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+
+		if(i==0){
+			var lw=W*0.8*0.8;
+			var lh=H*0.8*0.8;
+			var lleft=boxW/2-W/2-(W*0.8)/2-lw/2;
+			var ltop=(boxH-H+(H*0.8/4)+(lh/4))/2;
+			var lindex=1;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+		if(i==4){
+			var lw=W*0.8*0.8;
+			var lh=H*0.8*0.8;
+			var lleft=boxW/2+(W*0.8)/2;
+			var ltop=(boxH-H+(H*0.8/4)+(lh/4))/2;
+			var lindex=1;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+		if(i>4){
+			var lw=W*0.8*0.8;
+			var lh=H*0.8*0.8;
+			var lleft=(boxW-W)/2;
+			var ltop=(boxH-H+(H*0.8/4)+(lh/4))/2;
+			var lindex=0;
+		    $(obj).css({width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex})
+		}
+
+			syarr[i]={width:lw,height:lh,left:lleft,top:ltop,zIndex:lindex};
+	})    
+    /*换方向*/
+    var move =leftmove;
+    var flag=true;
+    var t=setInterval(move,1000);
+    function leftmove(){
+        if(flag){
+        	flag=false;
+        	arr.push(arr[0]);
+    	    arr.shift();
+    	    for(var i in arr){
+    		($(arr[i])).animate((syarr[i]),500,function(){
+    			if(i==(arr.length-1)){
+    				return flag=true;
+    			}
+    		})
+    	    }
+        }
+    	
+    }
+    var arrlen=arr.length;
+    function rightmove(){
+        if(flag){
+        	flag=false;
+        	arr.unshift(arr[arrlen-1]);
+    	    arr.pop();
+    	    for(var i in arr){
+    		($(arr[i])).animate((syarr[i]),500,function(){
+    			if(i==(arr.length-1)){
+    				return flag=true;
+    			}
+    		})
+    	    }
+        }
+    	
+    }
+    
+     $(".btnleft").click(function(){
+     	clearInterval(t);
+     	   leftmove();
+     	  t=setInterval(move,1000);
+     	
+     })
+     $(".btnright").click(function(){
+     	clearInterval(t);
+     	rightmove();	
+     	t=setInterval(move,1000);
+     })
+
+    
+	</script>
+</body>
+</html>

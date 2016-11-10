@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+</head>
+<body>
+<div class="top">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title top-one">备忘录</h3>
+        </div>
+        <div class="panel-body top-two-parent">
+            <span class="glyphicon glyphicon-plus top-two add"></span>
+        </div>
+    </div>
+</div>
+<!--头部-->
+<!--添加的表单-->
+<div class="formbox">
+    <button type="button" class="close closeform" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <form class="form-horizontal box">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">标题</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control text" id="inputEmail3" placeholder="title">
+                <span class="textspan">*请输入标题</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">内容</label>
+            <div class="col-sm-10">
+                <input type="textarea" class="form-control textareabox" id="inputPassword3" placeholder="content">
+                <span class="textareaspan">*请输入内容</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">时间</label>
+            <div class="col-sm-10">
+                <input type="date" id="date" class="date" value="2016-01-20">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn-default btn ">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--显示窗口-->
+<div class="conbox">
+    <button type="button" class="close closeconbox" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="panel panel-default">
+        <div class="panel-heading">标题</div>
+        <div class="panel-body title-con">
+            Panel content
+        </div>
+        <div class="panel-heading">内容</div>
+        <div class="panel-body con">
+        vrtdh
+        </div>
+        <div class="panel-heading">时间</div>
+        <div class="panel-body date-con">
+            Panel content
+        </div>
+    </div>
+</div>
+</body>
+</html>

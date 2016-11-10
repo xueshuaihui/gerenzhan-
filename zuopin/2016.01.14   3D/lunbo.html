@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            var W=800;
+            var H=400;
+            var time;
+            var box=$("<div>").css({width:W,height:H,margin:"100px auto"}).appendTo($("body"))
+            /*轮播的大容器*/
+            var num=4;
+            /*num 定义轮播内要分多少个环境*/
+            var arr=[];
+            /*定义一个数组 用来放置承载的环境   动的时候操作环境载体*/
+            for(var i=0;i<num;i++) {
+                var divs = $("<div>").css({width: W,height: H / num,perspective: "3000px",perspectiveOrigin:"center "+((num-i)*H/num)+"px"}).appendTo(box);
+                /*轮播窗口内的各个小窗口*/
+                var hj = $("<div>").css({width: "100%", height: "100%",position: "relative",transition:"transform 1s ease "+(i*0.1)+"s",
+                    transformStyle: "preserve-3d",
+                }).appendTo(divs);
+                /*承载四面体的环境*/
+               arr.push(hj);
+                for (var j = 0; j < 4; j++) {
+                    var mian = $("<div>").appendTo(hj);
+                    /*左*/
+                    if (j == 0) {
+                        mian.css({width: H, height: W / num,position: "absolute",transformOrigin: "left",transform: "rotateY(-90deg)",
+                        background:"url(image/4001.jpg) no-repeat 0 "+ (-i*H/num)+"px" })
+                    }
+                    else if(j==1){
+                        /*后*/
+                        mian.css({width:W,height:W/num,position:"absolute",transform:"rotateY(180deg)",
+                            background:"url(image/1.jpg) no-repeat 0 "+(-i*H/num)+"px"})
+                    } else if(j==2){
+                        /*右*/
+                        mian.css({width:H,height:W/num,position:"absolute",right:0,transformOrigin:"right",transform:"rotateY(90deg)",
+                            background:"url(image/4002.jpg) no-repeat 0 "+(-i*H/num)+"px"})
+                    }else if(j=3){
+                        /*前*/
+                        mian.css({width:W,height:W/num,position:"absolute",transform:"translateZ("+H+"px)",
+                           background:"url(image/2.jpg) no-repeat 0 "+(-i*H/num)+"px"
+                        })
+                    }
+                    /*四个面的放置*/
+
+                }
+                /*四面体*/
+            }
+
+window.onblur=function(){
+clearInterval(t)
+            };
+window.onfocus=function(){
+    t=setInterval(move,10000);
+}
+ var n=0
+var t=setInterval(move,10000);
+            function move(){
+                n+=90;
+                for(var i=0;i<arr.length;i++){
+                    arr[i].css({
+                        transform:"rotateY("+n+"deg)",
+                        transformOrigin:"center center 200px"
+                    })
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

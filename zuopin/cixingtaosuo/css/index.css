@@ -1,0 +1,5 @@
+*{padding:0;margin:0;}
+.bigbox{width:550px;height:500px;margin:50px auto;position:relative;}
+.bigbox>.box{float:left;margin-right:10px;margin-bottom:10px;}
+.bigbox>.box>img{width:100px;height:100px;}
+.opacity{width:100%;height:100%;display:none;background:white;opacity:0.6;position:absolute;z-index: 5}

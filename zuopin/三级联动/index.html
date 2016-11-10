@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='citydata.js'></script>
+	<script type="text/javascript">
+	window.onload=function(){
+			var province=document.myform.province;
+			var city=document.myform.city;
+			var area=document.myform.area;
+
+		function citys(province,city,area){
+			province.onfocus=function(){
+				var plen=provinceList.length;
+				var str='<option>请选择省份</option>';
+				for(var i=0;i<plen;i++){
+					str+='<option>'+provinceList[i].name+'</option>'
+				}
+				province.innerHTML=str;
+
+				province.onchange=function(){
+					var index=province.selectedIndex-1;
+					var clen=provinceList[index].cityList.length;
+					var str='<option>请选择城市</option>';
+					for(var i=0;i<clen;i++){
+						str+='<option>'+provinceList[index].cityList[i].name+'</option>'
+					}
+
+					city.innerHTML=str;
+					city.onchange=function(){
+						var now=city.selectedIndex-1;
+						var alen=provinceList[index].cityList[now].areaList.length;
+						var str='<option>请选择地区</option>';
+						for(var i=0;i<alen;i++){
+							str+='<option>'+provinceList[index].cityList[now].areaList[i]+'</option>'
+						}
+						area.innerHTML=str;
+					}
+					/*area*/
+					if(city.selectedIndex==0){
+						area.innerHTML='<option>请选择地区</option>';
+					}
+				}
+				/*city*/
+			}
+			/*provice*/
+    }
+
+
+
+/*调用函数*/
+citys(province,city,area);
+	}
+	
+	</script>
+</head>
+<body>
+	<form action="" name='myform'>
+		省份<select name='province' >
+			<option>请选择省份</option>
+		</select>
+		城市<select name='city' >
+			<option>请选择城市</option>
+		</select>
+		地区<select name='area' >
+			<option>请选择地区</option>
+		</select>
+	</form>
+</body>
+</html>

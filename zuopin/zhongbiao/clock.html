@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /**{box-sizing: border-box}*/
+       /* .clock{width:400px;height:400px;border:10px solid #666;border-radius:50%;position:relative;left:0;top:0;right:0;bottom:0;margin:auto auto;
+               background:radial-gradient(white,#999)
+        }*/
+        .clock{width:400px;height:400px;position:relative;left:0;top:0;right:0;bottom:0;margin:auto auto;background:url("bg.png") no-repeat center;
+              background-size:cover}
+        .btn{width:25px;height:25px;border-radius:50%;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto auto;z-index: 9999;
+             background:radial-gradient(#eee,black)
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var clock=document.getElementsByClassName("clock")[0];
+            var divsW=0;
+            var divsH=0;
+            var bcolor;
+            function create(){
+                for(var i=0;i<60;i++){
+                    if(i%5==0){
+                       divsW=6;
+                        divsH=20;
+                        bcolor="black";
+                    }else{
+                        divsW=4;
+                        divsH=15;
+                        bcolor="#eee";
+                    }
+                    var divs=document.createElement("div");
+                    divs.style.cssText="width:"+divsW+"px;height:"+divsH+"px;background:"+bcolor+";position:absolute;top:0;left:0;"
+                    divs.style.transform="translate(198px,0) rotate("+i*6+"deg)";
+                    divs.style.transformOrigin="center 200px"
+                    clock.appendChild(divs)
+                }
+
+            }
+//            create();
+
+            function zhizhen(w,h,c,r){
+                var ps=document.createElement("div");
+                ps.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;transform:translate(198px,"+(200-h)+"px) rotate("+r+"deg);transform-origin:center "+h+"px"
+                ps.h=200-h;
+                clock.appendChild(ps)
+                return ps;
+            }
+
+          var hp=zhizhen(8,80,"#999",30);
+            var mp=zhizhen(5,110,"#eee",60);
+            var sp=zhizhen(3,150,"red",90);
+
+            var data=new Date();
+            var datah=data.getHours();
+            var datam=data.getMinutes();
+            var datas=data.getSeconds();
+            hp.style.transform="translate(198px,"+hp.h+"px) rotate("+(30*datah+(datam/60*30))+"deg)";
+            mp.style.transform="translate(198px,"+mp.h+"px) rotate("+(6*datam)+"deg)";
+            sp.style.transform="translate(198px,"+sp.h+"px) rotate("+(6*datas)+"deg)"
+
+            setInterval(function(){
+                var data=new Date();
+                var datah=data.getHours();
+                var datam=data.getMinutes();
+                var datas=data.getSeconds();
+                hp.style.transform="translate(198px,"+hp.h+"px) rotate("+(30*datah+(datam/60*30))+"deg)";
+                mp.style.transform="translate(198px,"+mp.h+"px) rotate("+(6*datam)+"deg)";
+                sp.style.transform="translate(198px,"+sp.h+"px) rotate("+(6*datas)+"deg)";
+            },1000)
+        }
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="btn"></div>
+</div>
+</body>
+</html>

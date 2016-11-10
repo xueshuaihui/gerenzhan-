@@ -1,0 +1,61 @@
+.onezp{background:url("../image/background.jpg") no-repeat center;background-size:cover}
+.onezp .top{width:100%;height:10%;min-height:50px;border:1px solid white;border-left:none;border-right:none;margin-top:10px;position: relative}
+.onezp .top>.title{width:80%;margin:0 auto;display:none}
+.onezp .top>.title-s{width:100%;display:block;}
+.onezp .top .geren{font-size: 50px;width:100px;height:100%;text-align:center;line-height:65px;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;}
+/*头部导航*/
+.onezp .container-fluid>.row>div[class|=col]{text-align: center;height:100%;line-height:60px;font-size:15px;}
+.onezp .oneconbox{width:100%;height:90%;min-height:500px;position:relative}
+.onezp a{height:30px;}
+.onezp a:hover{border-bottom:1px solid #ff9e02;}
+.onezp .oneconbox .baikuang{display:none;width:250px;height:300px;border:2px solid white;position:absolute;top:100px;left:0;}
+/*中心动画   隐藏*/
+.con-titlebox{display:block;width:100%;height:100%;padding-top:20%;}
+.con-titlebox>h1{width:100%;height:50%;font-size: 50px;text-align: center;color:#ff9e02}
+/*小窗口标题*/
+.onezp .oneconbox .baikuang .xinlv-bigbox{width:800px;height:200px;position:absolute;top:50px;left:0;}
+.onezp  .xinlv-bigbox .zhezhao{height:100%;width:248px;border-right:2px solid white;
+    background:url("../image/background.jpg") no-repeat center;
+}
+.onezp .oneconbox .baikuang .xinlv-bigbox .wenzi-box{width:248px;height:150px;border-right:2px solid white;position:absolute;top:40px;left:0;}
+.onezp .wenzi-box>span{display:block;opacity:0;transition:opacity 1s ease 5s;font-size:45px;position:absolute;top:-10px;left:40%;}
+.onezp .wenzi-box>h6{display:block;opacity:0;transition:opacity 1s ease 1s;color:#ff9e02;font-size:15px;position:absolute;bottom:50px;left:70px}
+.onezp .wenzi-box>p{display:block;opacity:0;transition:opacity 2s ease 4s;color:#ff9e02;width:300px;font-size:12px;position:absolute;bottom:50px;right:70px}
+.onezp .wenzi-box>h1{display:block;transition:opacity 1s ease 1s;color:white;font-size:45px;position:absolute;top:0;left:100px;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif}
+
+/*折线动画*/
+.onezp .start{width:10px;height:15px;position:absolute;background:#ff9d02;left:80px;bottom:100px;}
+.onezp .zhexian{width:0;background:#e69007;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto auto;}
+.onezp .zhexian:nth-child(1){left:0}
+.onezp .zhexian:nth-child(2){left:100px}
+.onezp .zhexian:nth-child(3){left:135px;top:190px}
+.onezp .zhexian:nth-child(4){left:165px;top:-165px}
+.onezp .zhexian:nth-child(5){left:200px;top:15px}
+@media screen and (min-width:750px) {
+    .onezp .oneconbox .baikuang{display:block}
+    /*中心动画*/
+    .con-titlebox{display:none;}
+    /*小窗口标题  隐藏*/
+}
+@media screen and (min-width:900px) {
+    .onezp .top>.title{width:80%;margin:0 auto;display:block}
+    .onezp .top>.title-s{width:100%;display:none;}
+    /*头部导航*/
+    .onezp .oneconbox .baikuang{left:20%;}
+}
+@media screen and (min-width:1100px) {
+
+}
+
+
+
+
+
+.xiyiye{width:50px;height:30px;font-size:30px;position:fixed;bottom:50px;left:0;right:0;margin:0 auto;color:white;
+                cursor: pointer;z-index: 999}
+
+@-webkit-keyframes scale {
+    0% {transform:scale(1,1)}
+    100% {transform:scale(0.5,0.5)}
+}
+.xiyiye{animation:scale linear 1s;animation-direction:alternate;animation-iteration-count:infinite;}

@@ -1,0 +1,18 @@
+.bigbox{width:800px;height:500px;margin:50px auto;position:relative}
+.gongjulan{width:80px;height:100%;position:absolute;top:0;left:-80px;z-index: 10;    background: url("../image/border.jpg");
+    background-size: cover;}
+.gongjulan>ul{width:100%;padding:10px 0;border-bottom:1px dotted #000000}
+.gongjulan>ul>li{width:100%;height:30px;font-size:20px;text-align:center;line-height:20px;cursor: pointer}
+.gongjulan>ul>li>input{margin:0 auto}
+.gongjulan div[class|=data]{cursor: pointer;height:25px;font-size:20px;font-weight: bold;text-align: center;line-height:25px;}
+/*工具栏*/
+.menu{width:880px;height:30px;position:absolute;top:-30px;left:-80px;background:url("../image/border.jpg");background-size:cover;}
+.menubox{width:80%;height:100%;line-height:30px;position:relative;}
+.menubox>span{display:block;width:80px;height:100%;text-align: center;cursor: pointer}
+.menubox>ul{position:absolute;top:0;left:80px;overfloe:hidden;display:none}
+.menubox>ul>li{float:left;margin-left:20px;cursor:pointer}
+/*菜单*/
+.xp{width:20px;height:10px;border:1px solid #000;border-radius:2px;position:absolute;display:none}
+/*橡皮*/
+/*选择*/
+.select{border:1px dotted black;position:absolute;top:0;left:0;display:none;}

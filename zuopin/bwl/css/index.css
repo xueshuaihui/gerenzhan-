@@ -1,0 +1,15 @@
+body{;background:url("../image/bg.jpg")}
+/**/
+.top{text-align: center;position:relative;z-index:999;}
+.top-two-parent{padding:5px;}
+.top-two{font-size: 30px ;cursor: pointer;}
+/*top*/
+/*form*/
+.formbox{display:none;background:white;border:1px solid #eee;width:400px;height:330px;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;
+    z-index:999;}
+.formbox .box{margin-top:30px;}
+.formbox .box .textspan,.formbox .box .textareaspan{color:green;font-size:12px;display:none;}
+.formbox .textareabox{height:100px;overflow:auto;padding:0;cols:10;rows:10;}
+/*内容*/
+.conbox{width:300px;height:300px;position:absolute;left:0;top:0;display:none;}
+.conbox .con{height:50px;overflow:auto;}

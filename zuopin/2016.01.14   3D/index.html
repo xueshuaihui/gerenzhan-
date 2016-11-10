@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bigbox{width:800px;height:500px;margin:200px auto;
+            perspective: 800px;
+        }
+        .box{width:200px;height:200px;margin:100px auto;position:relative;font-size: 100px;
+            text-align: center;line-height:300px;
+            /*transition:transform 9s ease;*/
+            transform-style: preserve-3d ;
+            transform-origin: center center 100px;
+
+        }
+/*        .box:hover{
+            transform:rotateY(360deg);
+
+        }*/
+        .box div{width:100%;height:100%;position:absolute;left:0;top:0;
+
+        }
+
+        .box div:nth-child(1){transform: rotateY(-90deg);transform-origin: left;background:#31b0d5}
+       .box div:nth-child(2){transform: rotateY(90deg);transform-origin: right;background:blue}
+        .box div:nth-child(3){transform: rotateX(90deg);transform-origin: top;background:palevioletred}
+        .box div:nth-child(4){transform: rotateX(-90deg);transform-origin: bottom;background:gold}
+        .box div:nth-child(5){transform: rotateY(180deg);background:blanchedalmond}
+       .box div:nth-child(6){transform: translateZ(200PX);background:#eee}
+
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            var box=$(".box");
+            var ox=box.offset().left+box.width()/2;
+            var oy=box.offset().top+box.height()/2;
+            var oz=0;
+            /*原点坐标*/
+            $(document).mousemove(function(e){
+                var mx= e.pageX-ox;
+                var my= e.pageY-oy;
+                var mz=0;
+                /*鼠标移动时各轴到原点的距离*/
+                var h=Math.sqrt(mx*mx+my*my+mz*mz);
+                /*到坐标原点的距离   向量的模*/
+                var Mx=mx/h;
+                var My=my/h;
+                var Mz=mz/h;
+                /*各轴的单位向量*/
+                box.css({
+                    transform:"rotate3d("+Mx+","+My+","+Mz+","+h+"deg)"
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="bigbox">
+    <div class="box">
+        <div><img src="image/1.png" width="200"></div>
+        <div><img src="image/4002.jpg" width="200"></div>
+        <div><img src="image/02-085554_288.jpg" width="200"></div>
+        <div><img src="image/4003.jpg" width="200"></div>
+        <div><img src="image/1443794691.jpg" width="200"></div>
+        <div><img src="image/t018ec4571620bec7f3.jpg" width="200"></div>
+    </div>
+</div>
+</body>
+</html>

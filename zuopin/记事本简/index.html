@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	li,h3,h5,p,ul,li{list-style:none;padding:0;margin:0;}
+      ul{width:300px;height:380px;}
+      .yuefen{width:40px;height:40px;float:left;color:white;background:#424242;text-align:center;margin:5px;padding:20px;}
+      #chushi{background:white;color:#ed587e;}
+      p{font-size:12px;}
+      .box{width:270px;height:500px;background:#eae9e9;margin:0 auto;padding:20px;}
+      .bottom{width:260px;height:100px;margin:0 auto;background:#f1f1f1;border:1px solid white;}
+	</style>
+	<script type="text/javascript">
+    window.onload=function(){
+         var lis=document.getElementsByClassName('yuefen');
+         var text=document.getElementsByClassName("bottom")[0];
+         var arr=[
+         "快过年了！可以好好休息了！！！！","过年了！大家一起玩耍了","要找工作了，加油！！！","好好努力！！！","五一假期，要放假了，好高兴鸟","好热的说，尽量还不要出去","八月假期快完了","九月了，天气慢慢转凉了","十一黄金周来临了！！1","好冷！要多穿点衣服","这又到年底了，这一年都干了个啥！！！","过年了！！！好高兴的说！！！"
+         ]
+         for(var i=0;i<12;i++){
+         	lis[i].index=i;
+         	lis[i].onmouseover=function(){
+         		for(var j=0;j<12;j++){
+         			lis[j].style.background="#424242";
+         			lis[j].style.color="white";
+         		}
+         		this.style.background="white";
+         		this.style.color="#ed587e";
+         		text.innerHTML="<h5>"+(this.index+1)+"月份大事</h5><p><br>"+arr[this.index]+"</p>"
+         	}
+         }
+        
+    }
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li class="yuefen" id="chushi"><h3>1</h3><p>JAN</p></li>
+			<li class="yuefen"><h3>2</h3><P>FER</P></li>
+			<li class="yuefen"><h3>3</h3><P>MAR</P></li>
+			<li class="yuefen"><h3>4</h3><P>APR</P></li>
+			<li class="yuefen"><h3>5</h3><P>MAY</P></li>
+			<li class="yuefen"><h3>6</h3><P>JUN</P></li>
+			<li class="yuefen"><h3>7</h3><P>JUL</P></li>
+			<li class="yuefen"><h3>8</h3><P>AUG</P></li>
+			<li class="yuefen"><h3>9</h3><P>SEP</P></li>
+			<li class="yuefen"><h3>10</h3><P>OCT</P></li>
+			<li class="yuefen"><h3>11</h3><P>NOV</P></li>
+			<li class="yuefen"><h3>12</h3><P>DEC</P></li>
+		</ul>
+		<div class="bottom"><h5>1月份大事</h5><p><br>快过年了！可以好好休息了！！！！</p></div>
+	</div>
+</body>
+</html>

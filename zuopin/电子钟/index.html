@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+<style type="text/css">
+	div,ul,li{list-style:none;}
+	body{background:black;}
+	.box{width:400px;height:200px;box-shadow:5px 5px 15px rgb(60,60,60);margin:200px auto;}
+	.days li{float:left;}
+	.days ul div{float:left;}
+	.year{float:left;width:400px;}
+	.days{float:left;width:400px;}
+	.mea{float:left;}
+	.year li{float:left;}
+    .year ul div{float:left;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		function zhuanhuan(zifu){
+        			if(zifu<10){
+        				return "0"+zifu;
+        			}else{
+        				return ""+zifu;
+        			}
+        	      }
+        	      //转换函数
+		//获取时间
+             function time(){
+             	var oday=new Date;
+                var str=zhuanhuan(oday.getHours())+zhuanhuan(oday.getMinutes())+zhuanhuan(oday.getSeconds());     		
+                   //数字转换
+                   var days=document.getElementsByClassName('days');
+                   	var lis=document.getElementsByClassName('lis');
+                   for(var i=0;i<str.length;i++){
+                   	lis[i].innerHTML="<img src='./images/"+parseInt(str.charAt(i))+".png'>"
+                   }
+           //时分秒
+           //星期几
+           var tdate=new Date;
+           function xingqi(){
+           	switch(tdate.getDay()){
+           		case 0:return ("seven");break;
+           		case 1:return ("one");break;
+           		case 2:return ("two");break;
+           		case 3:return ("three");break;
+           		case 4:return ("four");break;
+           		case 5:return ("five");break;
+           		default:return ("six");
+           	}
+           }
+           var mea=document.getElementsByClassName('mea')[0];
+           mea.innerHTML="<img src='./images/week.png'><img src='./images/"+xingqi()+".png'>";
+           //星期
+           //获取年月日
+           var threedate=new Date;
+           var years=zhuanhuan(threedate.getFullYear())+zhuanhuan(threedate.getMonth()+1)+zhuanhuan(threedate.getDate());
+           var liss=document.getElementsByClassName('liss');
+           for(var i=0;i<years.length;i++){
+           		liss[i].innerHTML="<img src='./images/"+parseInt(years.charAt(i))+".png'>"
+           }
+	
+
+
+
+	}
+	setInterval(time,1000); 
+	time()
+	}           
+	
+</script>
+</head>
+<body>
+	<div class="box">
+		<div class="year">
+			<ul>
+				<li class="liss"></li>
+				<li class="liss"></li>
+				<li class="liss"></li>
+				<li class="liss"></li>
+				<div><img src="./images/year.png"></div>
+				<li class="liss"></li>
+				<li class="liss"></li>
+				<div><img src="./images/month.png"></div>
+				<li class="liss"></li>
+				<li class="liss"></li>
+				<div><img src="./images/seven.png"></div>
+			</ul>
+		</div>
+		
+		<div class="days">
+			<ul>
+				<li class="lis"></li>
+				<li class="lis"></li>
+				<div><img src="./images/sign.png"></div>
+				<li class="lis"></li>
+				<li class="lis"></li>
+				<div><img src="./images/sign.png"></div>
+				<li class="lis"></li>
+				<li class="lis"></li>
+			</ul>
+		
+		<div class="mea"></div>
+	</div>
+	</div>
+</body>
+</html>
